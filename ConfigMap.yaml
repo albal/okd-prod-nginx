@@ -7,4 +7,14 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "6"
 data:
-  index.html: Hello World from OKD!
+  index.html: |
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <title>OKD Prod Nginx</title>
+      </head>
+      <body>
+        <h1>Hello World from OKD!</h1>
+      </body>
+    </html>
