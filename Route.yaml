@@ -1,0 +1,20 @@
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: nginx-hello-route
+  namespace: nginx-hello
+  annotations:
+    argocd.argoproj.io/sync-wave: "7"
+    # This tells OKD to use the certificate we managed via cert-manager
+    # Note: cert-manager can automatically inject certs into routes
+    # if you have the OpenShift route-controller enabled.
+    cert-manager.io/issuer: "letsencrypt-cloudflare"
+spec:
+  host: hello.apps.okd.dev.tsew.net
+  to:
+    kind: Service
+    name: nginx-hello-svc
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
