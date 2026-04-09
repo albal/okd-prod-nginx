@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-hello-content
+  namespace: nginx-hello
+  annotations:
+    argocd.argoproj.io/sync-wave: "6"
+data:
+  index.html: Hello World from OKD!
